@@ -1,11 +1,13 @@
 package edu.iis.mto.multithread;
 
-public class Radar {
+public class BetterRadar {
 
     private PatriotBattery battery;
+    private int numberOfRocketsToLaunch;
 
-    public Radar(PatriotBattery battery) {
+    public BetterRadar(PatriotBattery battery, int numberOfRocketsToLaunch) {
         this.battery = battery;
+        this.numberOfRocketsToLaunch = numberOfRocketsToLaunch;
     }
 
     public void notice(Scud enemyMissle) {
@@ -17,7 +19,7 @@ public class Radar {
 
             @Override
             public void run() {
-                for (int i = 0; i < 10; i++) {
+                for (int i = 0; i < numberOfRocketsToLaunch; i++) {
                     battery.launchPatriot();
                 }
             }
